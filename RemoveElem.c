@@ -19,7 +19,7 @@ Lista2* Remove (Lista2* ini, int remov);
 
 int main (){
 
-    int op, aux;
+    int op, aux, temp;
     Lista2* lst;
 
     do
@@ -37,7 +37,7 @@ int main (){
             scanf ("%d", &aux);
 
             Insere (lst, aux);
-
+            
             break;
         
         case 2:
@@ -80,20 +80,16 @@ Lista2* Localiza (Lista2* ini, int remov) {
 
         if (P -> num == remov){
 
-            printf ("Inteiro localizado\n");
             return P;
         }
-        
 
         P = P -> prox;
     }
 
-    printf ("Inteiro não localizado\n");
-
     return NULL;
   }
 
-  Lista2* Remove (Lista2* ini, int remov){
+Lista2* Remove (Lista2* ini, int remov){
 
     Lista2* P = Localiza (ini, remov);
 
