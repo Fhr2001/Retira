@@ -75,31 +75,21 @@ Lista2* Localiza (Lista2* ini, int remov) {
 
     while (P != NULL){
 
+        printf ("teste\n");
+
         if (P -> num == remov){
+
+            printf ("achei\n");
             return P;
         }
 
         P = P -> prox;
     }
 
+    printf ("nao achei\n");
+
     return NULL;
   }
-
-/*Lista2* lst2_busca (Lista2* lst, int val){
-
-    Lista2* p;
-
-    for (p=lst; p!=NULL; p=p->prox){
-
-        if (p->num == val){
-        return p;
-        }
-        
-    }
-
-    return NULL;
-    /* não achou o elemento */
-}*/
 
 Lista2* Remove (Lista2* ini, int remov){
 
@@ -107,13 +97,15 @@ Lista2* Remove (Lista2* ini, int remov){
 
     if (!P) return ini;
 
-    if (ini == P)
+    if (ini == P){
         ini = P -> prox;
-
-    else
+        ini->ant = NULL;
+    } else {
         P -> ant -> prox = P -> prox; 
+        P ->prox->ant = P->ant;
+    }
 
-    if ((P -> prox) != NULL) 
+    if ((P -> prox) == NULL) 
         P -> prox -> ant = P -> ant;
     
     free(P);
