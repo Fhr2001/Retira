@@ -7,21 +7,18 @@ typedef struct lista2 {
     struct lista2 *ant, *prox; 
 } Lista2;
 
-Lista2* Cria (void);
-
 Lista2* Insere (Lista2* ini, int val);
 
 Lista2* Localiza (Lista2* ini, int remov);
 
 Lista2* Remove (Lista2* ini, int remov);
 
-
+Lista2* lst2_busca (Lista2* lst, int val);
 
 int main (){
 
-    int op, aux, temp;
-    Lista2* lst;
-
+    int op, aux;
+    Lista2* lst = (Lista2*) malloc(sizeof(Lista2));
     do
     {
         printf ("Digite 1 para inserir um termo\n");
@@ -79,7 +76,6 @@ Lista2* Localiza (Lista2* ini, int remov) {
     while (P != NULL){
 
         if (P -> num == remov){
-
             return P;
         }
 
@@ -88,6 +84,22 @@ Lista2* Localiza (Lista2* ini, int remov) {
 
     return NULL;
   }
+
+/*Lista2* lst2_busca (Lista2* lst, int val){
+
+    Lista2* p;
+
+    for (p=lst; p!=NULL; p=p->prox){
+
+        if (p->num == val){
+        return p;
+        }
+        
+    }
+
+    return NULL;
+    /* não achou o elemento */
+}*/
 
 Lista2* Remove (Lista2* ini, int remov){
 
